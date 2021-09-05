@@ -1,6 +1,7 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import ReactDOM from 'react-dom'
 import React, {ReactNode, Fragment} from 'react'
+import _ from 'lodash-es'
 
 const q2 = _.random(true)
 

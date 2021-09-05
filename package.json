@@ -2,20 +2,22 @@
   "name": "multiple-pages",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.pages.config.js --watch --mode development",
+    "start": "webpack --config webpack.pages.config.js --watch --mode production",
     "build:libs:dev": "webpack --config webpack.libs.config.js --mode development",
     "build:libs:prod": "webpack --config webpack.libs.config.js --mode production",
-    "build:pages": "webpack --config webpack.libs.config.js --mode production"
+    "build:pages": "webpack --config webpack.pages.config.js --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/lodash-es": "^4.17.4",
     "jquery": "^3.6.0",
     "jstree": "^3.3.12",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -23,7 +25,6 @@
   "devDependencies": {
     "@types/jquery": "^3.5.6",
     "@types/jstree": "^3.3.41",
-    "@types/lodash": "^4.14.172",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "clean-webpack-plugin": "^4.0.0",

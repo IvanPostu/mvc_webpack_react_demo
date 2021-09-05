@@ -1,26 +1,23 @@
 var webpack = require('webpack')
 const path = require('path');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const {libraies} = require('./libraries')
 
 module.exports = {
-    entry: {
-        lodash: ['lodash'],
-        jquery: 'jquery',
-        jstree: 'jstree',
-        moment: 'moment',
-        react: 'react',
-        'react-dom': 'react-dom'
-    },
+    entry: libraies,
     output: {
         filename: '[name].js',
         path: path.join(__dirname, 'dist', 'libs'),
-        library: 'vendor_lib'
+        library: '[name]'
     },
     plugins: [
         new CleanWebpackPlugin(),
         new webpack.DllPlugin({
-            name: 'vendor_lib',
-            path: path.join(__dirname, 'dist', 'libs', 'vendor-manifest.json')
-        })
+            path: path.join(__dirname, 'dist', 'libs', "[name]-manifest.json"),
+            name: "[name]"
+        }),
+        new webpack.ProvidePlugin({
+            _: 'lodash',
+        }),
     ]
 }
