@@ -1,10 +1,13 @@
 {
-  "name": "MultiplePages",
+  "name": "multiple-pages",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack --config webpack.pages.config.js --watch --mode development",
+    "build:libs:dev": "webpack --config webpack.libs.config.js --mode development",
+    "build:libs:prod": "webpack --config webpack.libs.config.js --mode production",
+    "build:pages": "webpack --config webpack.libs.config.js --mode production"
   },
   "keywords": [],
   "author": "",
@@ -13,13 +16,18 @@
     "jquery": "^3.6.0",
     "jstree": "^3.3.12",
     "lodash": "^4.17.21",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.6",
     "@types/jstree": "^3.3.41",
     "@types/lodash": "^4.14.172",
-    "@types/moment": "^2.13.0",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "clean-webpack-plugin": "^4.0.0",
+    "ts-loader": "^9.2.5",
     "typescript": "^4.4.2",
     "webpack": "^5.52.0",
     "webpack-cli": "^4.8.0",
