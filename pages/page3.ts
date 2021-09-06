@@ -1,5 +1,7 @@
 import moment from 'moment'
 
-const date = moment("2015-07-02"); // Thursday Feb 2015
-const dow = date.day();
-console.log(dow);
+var date = new Date('2015-02-27T10:00:00');
+var formatted = moment(date).format('D MMMM YYYY');
+
+console.log(formatted);
+

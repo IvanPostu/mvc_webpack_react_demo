@@ -8,7 +8,8 @@
     "start": "webpack --config webpack.pages.config.js --watch --mode development",
     "build:libs:dev": "webpack --config webpack.libs.config.js --mode development",
     "build:libs:prod": "webpack --config webpack.libs.config.js --mode production",
-    "build:pages": "webpack --config webpack.pages.config.js --mode production"
+    "build:pages": "webpack --config webpack.pages.config.js --mode production",
+    "prod": "npm run build:libs:prod && npm run build:pages"
   },
   "keywords": [],
   "author": "",
