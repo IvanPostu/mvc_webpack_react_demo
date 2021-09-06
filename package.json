@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.pages.config.js --watch --mode production",
+    "start": "webpack --config webpack.pages.config.js --watch --mode development",
     "build:libs:dev": "webpack --config webpack.libs.config.js --mode development",
     "build:libs:prod": "webpack --config webpack.libs.config.js --mode production",
     "build:pages": "webpack --config webpack.pages.config.js --mode production"
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/lodash-es": "^4.17.4",
+    "datatables.net": "^1.11.1",
     "jquery": "^3.6.0",
     "jstree": "^3.3.12",
     "lodash-es": "^4.17.21",
@@ -23,6 +24,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@types/datatables.net": "^1.10.20",
     "@types/jquery": "^3.5.6",
     "@types/jstree": "^3.3.41",
     "@types/react": "^17.0.20",

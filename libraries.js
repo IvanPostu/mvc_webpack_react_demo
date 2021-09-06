@@ -5,4 +5,5 @@ module.exports.libraies = {
     react: 'react',
     react_dom: 'react-dom',
     lodash_es: 'lodash-es',
+    datatables_net: 'datatables.net'
 }
