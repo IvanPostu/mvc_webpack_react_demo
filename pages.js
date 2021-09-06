@@ -1,3 +1,5 @@
+const {libraies} = require('./libraries')
+
 var pages = {
     page1: {
         libs: {
@@ -12,18 +14,11 @@ var pages = {
             jquery: 'jquery',
             lodash_es: 'lodash-es',
             datatables_net: 'datatables.net',
-            // jstree: 'jstree',
-            // moment: 'moment',
         }
     },
     page3: {
         libs: {
-            
-            jstree: 'jstree',
             moment: 'moment',
-            react: 'react',
-            react_dom: 'react-dom',
-            datatables_net: 'datatables.net'
         }
     }
 }

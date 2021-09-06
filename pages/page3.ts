@@ -1,7 +1,5 @@
-import { LoDashStatic } from "lodash"
+import moment from 'moment'
 
-const _: LoDashStatic = require('lodash')
-
-const q3 = _.random(true)
-
-console.log(q3)
+const date = moment("2015-07-02"); // Thursday Feb 2015
+const dow = date.day();
+console.log(dow);
