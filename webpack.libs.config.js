@@ -15,9 +15,6 @@ module.exports = {
         new webpack.DllPlugin({
             path: path.join(__dirname, 'dist', 'libs', "[name]-manifest.json"),
             name: "[name]"
-        }),
-        new webpack.ProvidePlugin({
-            _: 'lodash',
-        }),
+        })
     ]
 }

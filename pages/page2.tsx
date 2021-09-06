@@ -1,5 +1,3 @@
-// import _ from 'lodash'
-
 import ReactDOM from 'react-dom'
 import React, {ReactNode, Fragment} from 'react'
 import _ from 'lodash-es'
@@ -80,3 +78,5 @@ $(document).ready(function() {
         ]
     } );
 } );
+
+console.log(3334333)

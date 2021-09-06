@@ -1,52 +1,47 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
-const { libraies } = require('./libraries')
+const { pages } = require('./pages')
 
-module.exports = () => {
+module.exports = function(){
 
-    var libsManifests = Object.keys(libraies)
+    const dynamicGeneratedWebpackConfigs = Object.keys(pages).map(page => {
+        const libsObj = pages[page].libs
+        const libsManifests = Object.keys(libsObj)
         .map((k) => {
             return new webpack.DllReferencePlugin({
-                // context: __dirname,
                 manifest: path.join(__dirname, "dist", "libs", k + "-manifest.json"),
             })
         })
 
-    return {
-        entry: {
-            page1: {
-                import: path.resolve(__dirname, "pages", "page1"),
+        return {
+            entry: {
+                [page]: {
+                    import: path.resolve(__dirname, "pages", page),
+                }
             },
-            page2: {
-                import: path.resolve(__dirname, "pages", "page2"),
+            module: {
+                rules: [
+                    {
+                        test: /\.tsx?$/,
+                        use: "ts-loader",
+                        exclude: /node_modules/,
+                    },
+                ],
             },
-            page3: {
-                import: path.resolve(__dirname, "pages", "page3"),
+            resolve: {
+                extensions: [".tsx", ".ts", ".js"],
             },
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.tsx?$/,
-                    use: "ts-loader",
-                    exclude: /node_modules/,
-                },
+            output: {
+                filename: "[name].js",
+                path: path.resolve(__dirname, "dist", "pages"),
+            },
+            plugins: [
+                // new CleanWebpackPlugin(),
+                ...libsManifests
             ],
-        },
-        resolve: {
-            extensions: [".tsx", ".ts", ".js"],
-        },
-        output: {
-            filename: "[name].js",
-            path: path.resolve(__dirname, "dist", "pages"),
-        },
-        // externals: {
-        //     lodash: '_'
-        // },
-        plugins: [
-            new CleanWebpackPlugin(),
-            ...libsManifests,
-        ],
-    }
+        }
+    })
+
+    return dynamicGeneratedWebpackConfigs
 }
